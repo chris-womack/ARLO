@@ -1,7 +1,6 @@
 #include <Wire.h>
 #include <SharpIR.h>
 
-
 #define CTRL_REG1 0x20
 #define CTRL_REG2 0x21
 #define CTRL_REG3 0x22
@@ -11,8 +10,6 @@
 #define ir3 A0 //Front-Right IR
 
 #define model 1080
-
-
 
 int Addr = 105;                 // I2C address of gyro
 int x, y, z;
@@ -56,10 +53,7 @@ void setup(){
       xsum/=100; 
       ysum/=100;
       zsum/=100;
-
 }
-
-
 
 void loop() {
     getGyroValues();
@@ -110,7 +104,7 @@ void loop() {
   digitalWrite(pingPin4, LOW);        // Ensure pin is low
   delayMicroseconds(2);
   digitalWrite(pingPin4, HIGH);       // Start ranging
-  delayMicroseconds(5);              //   with 5 microsecond burst
+  delayMicroseconds(5);               // with 5 microsecond burst
   digitalWrite(pingPin4, LOW);        // End ranging
   pinMode(pingPin4, INPUT);           // Set pin to INPUT
   duration4 = pulseIn(pingPin4, HIGH); // Read echo pulse
